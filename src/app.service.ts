@@ -17,7 +17,7 @@ export class AppService implements OnModuleInit {
   }
 
   async onModuleInit() {
-    this.socket = io('https://trevvo-api-hml.scoder.com.br');
+    this.socket = io('https://example.com.br');
     this.socket.on('connect', () => {
       this.logger.log('connected');
     });
@@ -27,8 +27,8 @@ export class AppService implements OnModuleInit {
     this.socket.on('message', (data) => {
       this.logger.log(data);
     });
-    this.socket.on('cart.paid:adf635a1-b4a3-427b-b32a-cebbecb50699', (data) => {
-      this.logger.log(`cart.paid: ${JSON.stringify(data)} .`);
+    this.socket.on('beautiful.event', (data) => {
+      this.logger.log(`beautiful.event: ${JSON.stringify(data)} .`);
     });
 
     this.socket.on('error', (err) => {
